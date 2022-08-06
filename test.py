@@ -97,8 +97,13 @@ if uploaded_file is not None:
 
             result = formula
             st.write('Confidence: %s' % score)
+
             # display results here
-            txt = st.latex(result)
+            st.write("Extracted Formula")
+            if len(result) < 80:
+                st.latex(result)
+
+            st.text_area("", result)
 
         if st.sidebar.button('Run Tree Regressor'):
             # the tree stuff here
