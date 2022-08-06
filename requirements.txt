@@ -2,4 +2,3 @@ streamlit
 openpyxl
 autofeat
 numba
-PIL
