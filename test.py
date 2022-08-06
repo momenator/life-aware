@@ -72,11 +72,11 @@ if uploaded_file is not None:
         df_copy = dataframe.copy()
         date_fields = handle_dates(dataframe)
 
-        # cols_to_remove = list(set(list(df_copy.columns)).symmetric_difference(
-        #     set([targ_col] + feat_cols)))
+        cols_to_remove = list(set(list(df_copy.columns)).symmetric_difference(
+            set([targ_col] + feat_cols)))
 
         y = dataframe[targ_col]
-        dataframe = dataframe.drop([targ_col], axis=1)
+        dataframe = dataframe.drop([targ_col] + cols_to_remove, axis=1)
 
         feat_cols = list(dataframe.columns)
         X = dataframe[feat_cols]
