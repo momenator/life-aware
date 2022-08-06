@@ -27,14 +27,14 @@ if uploaded_file is not None:
         'select target column',
         dataframe.columns)
 
-    if not targ_col and targ_col in feat_cols:
-        raise Exception('target column and feature columns cannot overlap!')
+    if targ_col and targ_col in feat_cols:
+        st.error('target column and feature columns cannot overlap!')
+    else:
+        # run your ML model here
+        if st.button('Run'):
+            result = None
 
-    # run your ML model here
-    if st.button('Run'):
-        result = None
+            # display results here
+            txt = st.text_area('extracted rules', 'your rules here...')
 
-        # display results here
-        txt = st.text_area('extracted rules', 'your rules here...')
-
-        st.write('result: %s' % result)
+            st.write('result: %s' % result)
